@@ -19,9 +19,10 @@ try:
         ec.text_to_be_present_in_element((By.CSS_SELECTOR, "h5[id=\"price\"]"), "$100")
     )
 
-    book_btn = WebDriverWait(driver=browser, timeout=5).until(
-        ec.element_to_be_clickable((By.ID, "book"))
-    )
+    # book_btn = WebDriverWait(driver=browser, timeout=5).until(
+    #     ec.element_to_be_clickable((By.ID, "book"))
+    # )
+    book_btn = browser.find_element(By.ID, "book")
     book_btn.click()
 
     x_value = browser.find_element(By.ID, "input_value").text
