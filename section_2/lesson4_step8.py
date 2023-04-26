@@ -2,6 +2,7 @@ import math
 import time
 
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
@@ -12,7 +13,8 @@ def calc(x: int) -> str:
 
 
 try:
-    browser = webdriver.Chrome()
+    service = Service(executable_path="../chromedriver.exe")
+    browser = webdriver.Chrome(service=service)
     browser.get(url="http://suninjuly.github.io/explicit_wait2.html")
 
     price_text = WebDriverWait(driver=browser, timeout=12).until(
